@@ -21,9 +21,7 @@ public class ElementHelper {
     public WebElement presenceElement(By key) {
         return
                 wait.until(ExpectedConditions.presenceOfElementLocated(key));
-
     }
-
     public WebElement findElement(By key) {
         WebElement element = presenceElement(key);
         return element;
@@ -35,5 +33,8 @@ public class ElementHelper {
 
     public void sendKeys(By key, String text){
         findElement(key).sendKeys(text);
+    }
+    public void checkVisible(By key){
+        wait.until(ExpectedConditions.visibilityOf(findElement(key)));
     }
 }
